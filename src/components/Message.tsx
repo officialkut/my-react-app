@@ -10,4 +10,4 @@ export const Message = ({ text }: MessageProps): React.ReactElement => {
       <p className="message__text">{text}</p>
     </div>
   );
-};
+}; 
