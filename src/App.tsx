@@ -10,4 +10,5 @@ export const App = (): React.ReactElement => {
       <Message text={messageText} />
     </div>
   );
+  
 };
