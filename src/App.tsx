@@ -9,8 +9,5 @@ export const App = (): React.ReactElement => {
     <div className="App">
       <Message text={messageText} />
     </div>
-
-
-
   );
 };
