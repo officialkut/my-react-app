@@ -4,8 +4,10 @@ interface MessageProps {
   text: string;
 }
 
-const Message: React.FC<MessageProps> = ({ text }) => {
-  return <div>{text}</div>;
+export const Message = ({ text }: MessageProps): React.ReactElement => {
+  return (
+    <div className="message">
+      <p className="message__text">{text}</p>
+    </div>
+  );
 };
-
-export default Message;
