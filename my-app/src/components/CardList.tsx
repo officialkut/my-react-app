@@ -1,20 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Card from './Card';
+import { CardData } from '../types/dataTypes';
 
-interface CardData {
-  id: number;
-  title: string;
-  description: string;
-  // Другие поля карточки
-}
-
-interface CardListProps {
-  limit?: number;
-}
-
-const CardList: React.FC<CardListProps> = ({ limit = 10 }) => {
-  const [cards, setCards] = useState<CardData[]>([]);
+const CardList: React.FC<{ cardType: 'candidates' | 'features' | 'swiper'; limit?: number }> = ({ 
+  cardType, 
+  limit 
+}) => {
+  const [cards, setCards] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,19 +14,34 @@ const CardList: React.FC<CardListProps> = ({ limit = 10 }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Заглушка для демонстрации
-        const mockData: CardData[] = Array.from({ length: 20 }, (_, i) => ({
-          id: i + 1,
-          title: `Card ${i + 1}`,
-          description: `Description for card ${i + 1}`
-        }));
+        const response = await fetch('/data.json');
         
-        // Имитация задержки сети
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setCards(mockData.slice(0, limit));
+        if (!response.ok) {
+          throw new Error('Не удалось загрузить данные');
+        }
+        
+        const data: CardData = await response.json();
+        
+        let cardsData: any[] = [];
+        
+        switch (cardType) {
+          case 'candidates':
+            cardsData = Object.values(data.candidateCards);
+            break;
+          case 'features':
+            cardsData = Object.values(data.featureCards);
+            break;
+          case 'swiper':
+            cardsData = data.swiperCandidates;
+            break;
+          default:
+            throw new Error('Неизвестный тип карточек');
+        }
+        
+        setCards(limit ? cardsData.slice(0, limit) : cardsData);
         setError(null);
       } catch (err) {
-        setError('Ошибка загрузки данных');
+        setError(err instanceof Error ? err.message : 'Ошибка загрузки данных');
         console.error(err);
       } finally {
         setLoading(false);
@@ -42,20 +49,20 @@ const CardList: React.FC<CardListProps> = ({ limit = 10 }) => {
     };
     
     fetchData();
-  }, [limit]);
+  }, [cardType, limit]);
 
-  if (loading) return <div>Загрузка...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <div className="loading">Загрузка...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
-    <div className="card-list">
-     
-      
-      <div className="cards-container">
-        {cards.map(card => (
-          <Card key={card.id} {...card} />
-        ))}
-      </div>
+    <div className={`card-list ${cardType}`}>
+      {cards.map((card, index) => (
+        <Card 
+          key={index} 
+          type={cardType}
+          data={card} 
+        />
+      ))}
     </div>
   );
 };

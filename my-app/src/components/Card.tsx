@@ -1,17 +1,53 @@
+import React from 'react';
+
 interface CardProps {
-  id: number;
-  title: string;
-  description: string;
+  type: 'candidates' | 'features' | 'swiper';
+  data: any;
 }
 
-const Card: React.FC<CardProps> = ({ id, title, description }) => {
-  return (
-    <div className="card">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <div>ID: {id}</div>
-    </div>
-  );
+const Card: React.FC<CardProps> = ({ type, data }) => {
+  switch (type) {
+    case 'candidates':
+      return (
+        <div className="candidate-card">
+          <h3>{data.title}</h3>
+          <p className="subtitle">{data.subtitle}</p>
+          <p className="location">{data.location}</p>
+          <div className="tags">
+            {data.tags.map((tag: string, i: number) => (
+              <span key={i} className="tag">{tag}</span>
+            ))}
+          </div>
+          <p className="about">{data.about}</p>
+        </div>
+      );
+    
+    case 'features':
+      return (
+        <div className="feature-card">
+          <h3>{data.title}</h3>
+          <p>{data.description}</p>
+        </div>
+      );
+    
+    case 'swiper':
+      return (
+        <div className="swiper-card">
+          <h3>{data.title}</h3>
+          <p className="subtitle">{data.subtitle}</p>
+          <p className="location">{data.location}</p>
+          <p className="about">{data.about}</p>
+          <div className="tags">
+            {data.tags.map((tag: string, i: number) => (
+              <span key={i} className="tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+      );
+    
+    default:
+      return null;
+  }
 };
 
 export default Card;

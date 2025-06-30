@@ -5,7 +5,7 @@ const HomePage: React.FC = () => {
     <section>
       <h2>Главная страница</h2>
       <div className="preview-cards">
-        <CardList limit={3} />
+        <CardList limit={3} cardType={'candidates'} />
       </div>
     </section>
   );
