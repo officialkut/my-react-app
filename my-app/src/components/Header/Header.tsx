@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AuthModal from '../AuthModal/AuthModal';
 import '../../assets/styles/header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [showModal, setShowModal] = useState<'login' | 'signup' | null>(null);
@@ -12,21 +13,23 @@ const Header = () => {
   };
 
   return (
-    <header className="header container">
-      <a className="header__logo logo">Jobly</a>
+    <header className="header__container">
+      <Link to="/">
+        <a className="header__logo logo">Jobly</a>
+      </Link>
       <nav className="header__nav">
         <ul className="header__list">
           <button className="header__recruiters" type="button">
             For Recruiters
           </button>
-          <button 
-            className="header__signup" 
+          <button
+            className="header__signup"
             onClick={() => setShowModal('signup')}
           >
             Sign Up
           </button>
-          <button 
-            className="header__login" 
+          <button
+            className="header__login"
             type="button"
             onClick={() => setShowModal('login')}
           >
@@ -36,9 +39,9 @@ const Header = () => {
       </nav>
 
       {showModal && (
-        <AuthModal 
-          type={showModal} 
-          onClose={() => setShowModal(null)} 
+        <AuthModal
+          type={showModal}
+          onClose={() => setShowModal(null)}
           onSubmit={handleAuthSubmit}
         />
       )}

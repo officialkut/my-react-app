@@ -41,8 +41,8 @@ const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
 
   return (
     <div className="form-modal">
-      <div className="modal-content">
-        <div className="modal-header">
+      <div className="contact-form-container">
+        <div className="form-menu">
           <h2>{type === 'login' ? 'Login' : 'Register'}</h2>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
@@ -116,10 +116,10 @@ const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
           )}
 
           <div className="form-actions">
-            <button type="submit" className="submit-btn">
+            <button type="submit" className="submit-button">
               {type === 'login' ? 'Login' : 'Register'}
             </button>
-            <button type="button" className="cancel-btn" onClick={onClose}>
+            <button type="button" className="cansel-button" onClick={onClose}>
               Cancel
             </button>
           </div>

@@ -43,3 +43,10 @@
 .caption__content__img {
     margin-left: 245px;
 }
+
+/* Адаптация для телефонов (480-767px) */
+@media (max-width: 767px) {
+    .caption__content {
+        margin-right: -480px;
+    }
+}

@@ -27,3 +27,9 @@
     color: #707070;
     font-family: 'inter';
 }
+/* Адаптация для телефонов (480-767px) */
+@media (max-width: 767px) {
+    .promo__content{
+        margin-right: -480px;
+    }
+}

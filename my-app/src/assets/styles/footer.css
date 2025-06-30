@@ -16,3 +16,33 @@
     color: #707070;
     font-family: 'medium';
 }
+/* Адаптация для ноутбуков (1280-1440px) */
+@media (max-width: 1440px) {
+    .logo {
+        width: 145px;
+        height: 33px;
+    }
+}
+
+/* Адаптация для ноутбуков (1024-1279px) */
+@media (max-width: 1279px) {
+    .logo {
+        width: 135px;
+        height: 31px;
+    }
+}
+
+/* Адаптация для планшетов (768-1023px) */
+@media (max-width: 1023px) {
+    .logo {
+        width: 125px;
+        height: 28px;
+    }
+}
+
+/* Адаптация для телефонов (480-767px) */
+@media (max-width: 767px) {
+    .footer__copyright {
+        margin-right: 530px;
+    }
+}

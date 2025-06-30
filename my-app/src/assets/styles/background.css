@@ -1,7 +1,17 @@
-.background__content{
-background-image: url("/images/partret.png"),url("/images/black1.png"),url("/images/black1.png");
-background-repeat: no-repeat, no-repeat, no-repeat;
-background-position: 120px 3px, 10% 100%, bottom 213px right 0px, bottom 120% right 120%, bottom 120% right 120%;
+.background__content {
+    background-image: url("/images/partret.png"), url("/images/black1.png"), url("/images/black1.png");
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 120px 3px, 10% 100%, bottom 213px right 0px, bottom 120% right 120%, bottom 120% right 120%;
 
-height: 654px;
+    height: 654px;
+}
+
+
+/* Адаптация для телефонов (480-767px) */
+@media (max-width: 767px) {
+    .background__content {
+        margin-right: -480px;
+        background-position: 27px 3px, 79% 100%, bottom 218px right 3px, bottom 120% right 123%, bottom 120% right 117%;
+        height: 648px;
+    }
 }

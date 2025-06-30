@@ -43,3 +43,10 @@ header {
     text-decoration: none;
     font-family: 'inter';
 }
+
+/* Адаптация для телефонов (480-767px) */
+@media (max-width: 767px) {
+    .header__container{
+        margin-right: -480px;
+    }
+}

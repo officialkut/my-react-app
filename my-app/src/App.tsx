@@ -1,5 +1,10 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { AppData, Candidate, FeatureCard } from './types/types';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import CardsPage from './pages/CardsPage';
+import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header/Header';
 import PromoSection from './components/Promo/Promo';
 import CaptionSection from './components/Caption/Caption';
@@ -10,7 +15,7 @@ import Footer from './components/Footer/Footer';
 import Preloader from './components/Preloader/Preloader';
 import './App.css';
 
-const App = () => {
+const AppWrapper = () => {
   const [data, setData] = useState<AppData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +31,7 @@ const App = () => {
               subtitle: "Senior Product Designer",
               location: "Los Angeles, USA",
               tags: ["Figma", "UI Design", "UX Design"],
-              about: "Hi, I'm a final year student completing a bachelor's In information Technology in QUT, with experience. We are the company behind the wildly successful DIY channel 5-Minute Crafts, the inspirational and creative channel Bright Side.",
+              about: "Hi, I'm a final year student completing a bachelor's In information Technology in QUT, with experience.",
               portfolioImages: [
                 "images/Fram.png",
                 "images/Fram2.png",
@@ -40,19 +45,19 @@ const App = () => {
             card_1: {
               id: 'card_1',
               title: "Professional Profile",
-              description: "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters.",
+              description: "We know finding the right job is stressful, so we've made it simple.",
               icon: ''
             },
             card_2: {
               id: 'card_2',
               title: "Best Portfolio",
-              description: "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters.",
+              description: "Create a free portfolio to show your best self.",
               icon: ''
             },
             card_3: {
               id: 'card_3',
               title: "Powerful Resume",
-              description: "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters.",
+              description: "Generate a professional resume in minutes.",
               icon: ''
             }
           },
@@ -62,7 +67,7 @@ const App = () => {
               title: "UI/UX Designer",
               subtitle: "Senior Designer",
               location: "San Francisco, CA",
-              about: "I design user interfaces and experiences with a focus on accessibility and clean aesthetics.",
+              about: "I design user interfaces with a focus on accessibility.",
               tags: ["Figma", "Adobe XD", "User Research"]
             },
             {
@@ -70,7 +75,7 @@ const App = () => {
               title: "Frontend Developer",
               subtitle: "Mid-level Developer",
               location: "Remote",
-              about: "Specialized in React and Vue.js with 3+ years of commercial experience.",
+              about: "Specialized in React and Vue.js.",
               tags: ["JavaScript", "React", "CSS"]
             },
             {
@@ -78,13 +83,12 @@ const App = () => {
               title: "Product Manager",
               subtitle: "Junior PM",
               location: "New York, NY",
-              about: "Passionate about building products that solve real user problems.",
+              about: "Passionate about building products.",
               tags: ["Agile", "Scrum", "JIRA"]
             }
           ]
         };
 
-        // Попытка загрузить данные с сервера
         const response = await fetch('data.json');
         if (response.ok) {
           const serverData = await response.json();
@@ -94,7 +98,6 @@ const App = () => {
         }
       } catch (error) {
         console.error('Error loading data:', error);
-        // Используем локальные данные в случае ошибки
         setData({
           candidateCards: {
             card_1: {
@@ -103,7 +106,7 @@ const App = () => {
               subtitle: "Senior Product Designer",
               location: "Los Angeles, USA",
               tags: ["Figma", "UI Design", "UX Design"],
-              about: "Hi, I'm a final year student completing a bachelor's In information Technology in QUT, with experience. We are the company behind the wildly successful DIY channel 5-Minute Crafts, the inspirational and creative channel Bright Side.",
+              about: "Hi, I'm a final year student completing a bachelor's In information Technology in QUT, with experience.",
               portfolioImages: [
                 "images/Fram.png",
                 "images/Fram2.png",
@@ -117,19 +120,19 @@ const App = () => {
             card_1: {
               id: 'card_1',
               title: "Professional Profile",
-              description: "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters.",
+              description: "We know finding the right job is stressful.",
               icon: ''
             },
             card_2: {
               id: 'card_2',
               title: "Best Portfolio",
-              description: "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters.",
+              description: "Create a free portfolio.",
               icon: ''
             },
             card_3: {
               id: 'card_3',
               title: "Powerful Resume",
-              description: "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters.",
+              description: "Generate a professional resume.",
               icon: ''
             }
           },
@@ -139,7 +142,7 @@ const App = () => {
               title: "UI/UX Designer",
               subtitle: "Senior Designer",
               location: "San Francisco, CA",
-              about: "I design user interfaces and experiences with a focus on accessibility and clean aesthetics.",
+              about: "I design user interfaces.",
               tags: ["Figma", "Adobe XD", "User Research"]
             },
             {
@@ -147,7 +150,7 @@ const App = () => {
               title: "Frontend Developer",
               subtitle: "Mid-level Developer",
               location: "Remote",
-              about: "Specialized in React and Vue.js with 3+ years of commercial experience.",
+              about: "Specialized in React.",
               tags: ["JavaScript", "React", "CSS"]
             },
             {
@@ -155,7 +158,7 @@ const App = () => {
               title: "Product Manager",
               subtitle: "Junior PM",
               location: "New York, NY",
-              about: "Passionate about building products that solve real user problems.",
+              about: "Passionate about products.",
               tags: ["Agile", "Scrum", "JIRA"]
             }
           ]
@@ -172,21 +175,31 @@ const App = () => {
     return <Preloader />;
   }
 
-  return (
-    <div className="body__container">
-      <Header />
-      <main className="container" id="main">
-        <PromoSection />
-        <CaptionSection />
-        <AboutSection 
+  const MainContent = () => (
+    <main className="container" id="main">
+      <PromoSection />
+      <CaptionSection />
+      <AboutSection />
+      <FeaturesSection featureCards={Object.values(data.featureCards)} />
+      <CTASection />
+    </main>
+  );
 
-        />
-        <FeaturesSection featureCards={Object.values(data.featureCards)} />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
+  return (
+    <BrowserRouter>
+      <div className="body__container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<MainContent />} />
+            <Route path="cards" element={<CardsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 
-export default App;
+export default AppWrapper;
