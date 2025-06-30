@@ -1,56 +1,129 @@
-import React, { useState } from 'react';
-import { AuthFormType } from '../../types';
+import { useState, FormEvent } from 'react';
+import '../../assets/styles/form.css';
 
-const AuthModal: React.FC = () => {
-  const [formType, setFormType] = useState<AuthFormType>('signup');
+type AuthModalProps = {
+  type: 'login' | 'signup';
+  onClose: () => void;
+  onSubmit: (data: { email: string; password: string; name?: string; surname?: string }) => void;
+};
+
+const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
+  const [formData, setFormData] = useState({
+    surname: '',
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    
+    if (type === 'signup' && formData.password !== formData.confirmPassword) {
+      alert("Passwords don't match!");
+      return;
+    }
+
+    onSubmit({
+      email: formData.email,
+      password: formData.password,
+      ...(type === 'signup' && { 
+        name: formData.name,
+        surname: formData.surname 
+      })
+    });
+  };
 
   return (
-    <div className="form" id="formModal">
-      <div className="contact-form-container">
-        <div className="form-menu">
-          <h2 className="form__name">{formType === 'signup' ? 'Register' : 'Login'}</h2>
-          <button className="exit-button">X</button>
+    <div className="form-modal">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h2>{type === 'login' ? 'Login' : 'Register'}</h2>
+          <button className="close-button" onClick={onClose}>×</button>
         </div>
-        {formType === 'signup' ? (
-          <form id="contactForm">
+
+        <form onSubmit={handleSubmit}>
+          {type === 'signup' && (
+            <>
+              <div className="form-group">
+                <label htmlFor="surname">Surname</label>
+                <input
+                  type="text"
+                  id="surname"
+                  name="surname"
+                  value={formData.surname}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </>
+          )}
+
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              minLength={8}
+            />
+          </div>
+
+          {type === 'signup' && (
             <div className="form-group">
-              <label>Surname</label>
-              <input type="text" required />
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                minLength={8}
+              />
             </div>
-            <div className="form-group">
-              <label>Name</label>
-              <input type="text" required />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input type="email" required />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input type="password" autoComplete="on" required />
-            </div>
-            <div className="form-buttons">
-              <button type="submit" className="submit-button">Register</button>
-              <button type="button" className="cansel-button">Cancel</button>
-            </div>
-          </form>
-        ) : (
-          <form id="signUpForm">
-            <div className="form-group">
-              <label>Email</label>
-              <input type="email" required />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input type="password" autoComplete="on" required />
-            </div>
-            <button type="submit" className="submit-button">Login</button>
-            <button className="cansel-button">Cancel</button>
-          </form>
-        )}
-        <button onClick={() => setFormType(formType === 'signup' ? 'login' : 'signup')}>
-          Switch to {formType === 'signup' ? 'Login' : 'Register'}
-        </button>
+          )}
+
+          <div className="form-actions">
+            <button type="submit" className="submit-btn">
+              {type === 'login' ? 'Login' : 'Register'}
+            </button>
+            <button type="button" className="cancel-btn" onClick={onClose}>
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

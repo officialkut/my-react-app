@@ -1,0 +1,47 @@
+/* Swiper Styles */
+.mySwiper {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+
+.candidate-card-container {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: blue;
+}
+
+.swiper-wrapper{
+  display: flex;
+}
+.swiper-pagination-bullet-active {
+  background-color: #3d1edd;
+}
+/* styles.css (или slider.module.css, если используешь модули) */
+.slider-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+
+  height: auto;
+  border-radius: 8px; /* Опционально */
+}
+
+
+
+/* Точки-пагинации */
+.swiper-pagination-bullet {
+  background: #000;
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+  background: #ff0000; /* Активная точка */
+  opacity: 1;
+}
+/* Стили для слайдера */
+.swiper-slide {
+  height: auto !important; /* Чтобы слайд растягивался под контент */
+}

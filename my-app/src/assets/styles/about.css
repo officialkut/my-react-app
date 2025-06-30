@@ -1,0 +1,186 @@
+/*about.css*/
+.section__about {
+    padding: 1px 80px;
+    margin-top: 100px;
+}
+
+.about__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about__item {
+    text-decoration: none;
+}
+
+.about__title {
+    color: #121212;
+    text-align: center;
+    font-family: 'inter';
+    font-weight: 700;
+}
+
+.about__subtitle {
+    color: #707070;
+    font-family: 'inter';
+    font-weight: 400;
+}
+
+.about__wrap {
+    background-color: blue;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    font-family: 'inter';
+    font-weight: 700;
+}
+
+.about__wrapper {
+    margin-top: 86px;
+    padding: 20px;
+    background-color: white;
+    width: 619px;
+}
+
+.about__inner {
+    display: flex;
+    text-align: center;
+}
+
+.about__inner__war {
+    text-align: justify;
+}
+
+.about__registertext {
+    margin-left: auto;
+    margin-top: auto;
+    display: inline-flex;
+    column-gap: 6.6px;
+    color: #707070;
+    font-size: 11px;
+
+}
+
+.about__img {
+    display: flex;
+}
+
+.about__images {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 0.61px solid rgba(243, 243, 243, 1);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.about__register {
+    background-color: #f3f3f3;
+    margin: 0px;
+    padding: 6.6px 10px;
+    text-align: center;
+}
+
+.about__slogan__text {
+    font-size: 66%;
+    width: 395px;
+    color: #707070;
+}
+
+.about__col {
+    display: flex;
+    column-gap: 18px;
+    font-size: 9.9px;
+    color: #707070;
+}
+
+.about__slogan {
+    display: list-item;
+}
+
+.about__content {
+    padding: 14px 16.5px;
+    background-color: #3d1edd;
+    font-size: 11px;
+    text-align: center;
+    border: 1px solid #3d1edd;
+    color: #ffffff;
+}
+
+.about__content2 {
+    padding: 14px 15px;
+    background-color: initial;
+    font-size: 11px;
+    border: 1px solid #e5defd;
+    text-align: center;
+}
+
+.about__list__item {
+    width: 263px;
+    height: 270px;
+    margin-left: 408px;
+    margin-top: -280px;
+}
+
+.about__conteiners {
+    display: flex;
+    align-items: center;
+    margin: 9px 0px;
+}
+
+.about__email {
+    margin: 1px 12px;
+    font-size: 10px;
+}
+
+.about__normol {
+    margin: 1px;
+    color: #707070;
+}
+
+.about__list2 {
+    padding: 1px 12px;
+    background-color: white;
+    border: 1px solid #E5E8EB;
+} 
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+/* styles/style.css */
+
+.text-x {
+    font-family: 'inter';
+    font-weight: 700;
+}
+
+.text-gray {
+    color: #707070;
+    font-family: 'inter';
+    font-weight: 400;
+}
+.feature-cards-container {
+    display: flex;
+}
+.grid {
+    display: flex;
+}
+
+/* Стиль для горизонтальных карточек */
+.card {
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    width: 395px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}

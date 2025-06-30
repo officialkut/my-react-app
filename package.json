@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@types/swiper": "^6.0.0",
-    "react-id-swiper": "^4.0.0",
-    "swiper": "^11.2.10"
-  }
-}

@@ -1,6 +1,7 @@
-import React from 'react';
+import '../../assets/styles/style.css';
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -8,7 +9,7 @@ const Footer: React.FC = () => {
         <p className="footer__title">We support a pool of diverse young creatives and engineers.</p>
       </div>
       <div className="footer__holder">
-        <p className="footer__copy">© 2023 Jobly.co Copyright and All rights reserved.</p>
+        <p className="footer__copy">© {currentYear} Jobly.co Copyright and All rights reserved.</p>
         <p className="footer__copyright">Terms and Conditions · Privacy Policy</p>
       </div>
     </footer>

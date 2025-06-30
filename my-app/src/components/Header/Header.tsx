@@ -1,6 +1,16 @@
-import React, { ReactElement } from 'react';
+import { useState } from 'react';
+import AuthModal from '../AuthModal/AuthModal';
+import '../../assets/styles/header.css';
 
-const Header = (): ReactElement => {
+const Header = () => {
+  const [showModal, setShowModal] = useState<'login' | 'signup' | null>(null);
+
+  const handleAuthSubmit = (data: { email: string; password: string; name?: string; surname?: string }) => {
+    console.log('Auth data:', data);
+    // Здесь будет логика аутентификации
+    setShowModal(null);
+  };
+
   return (
     <header className="header container">
       <a className="header__logo logo">Jobly</a>
@@ -9,14 +19,29 @@ const Header = (): ReactElement => {
           <button className="header__recruiters" type="button">
             For Recruiters
           </button>
-          <button id="header__signup" className="header__signup">
+          <button 
+            className="header__signup" 
+            onClick={() => setShowModal('signup')}
+          >
             Sign Up
           </button>
-          <button className="header__login" type="button" id="header__login">
+          <button 
+            className="header__login" 
+            type="button"
+            onClick={() => setShowModal('login')}
+          >
             Log in
           </button>
         </ul>
       </nav>
+
+      {showModal && (
+        <AuthModal 
+          type={showModal} 
+          onClose={() => setShowModal(null)} 
+          onSubmit={handleAuthSubmit}
+        />
+      )}
     </header>
   );
 };
