@@ -38,7 +38,7 @@
   opacity: 0.5;
 }
 .swiper-pagination-bullet-active {
-  background: #ff0000; /* Активная точка */
+  background: #3d1edd; /* Активная точка */
   opacity: 1;
 }
 /* Стили для слайдера */
