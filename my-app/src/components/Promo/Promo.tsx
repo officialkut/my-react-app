@@ -5,20 +5,14 @@ const Promo = () => {
     <section className="section promo" id="promo">
       <div className="promo__content">
         <h2 className="promo__title">
-          Candidates with Creative & Engineering Backgrounds
+          Лучшие автомобили под ваш вкус и бюджет
         </h2>
         <p className="promo__description">
-          This is the place to show yourself and land entry level jobs at
-          cutting-edge companies. Launch your career here.
+          Найдите идеальный автомобиль с нашим профессиональным подходом
         </p>
         <div className="promo__buttons">
-          <button className="promo__button">Join Now</button>
-          <p className="promo__button__text">
-            Looking for candidates?{' '}
-            <a href="https://t.me/+7HxFrva6kodlNjAy" className="promo__link">
-              Hire now
-            </a>
-          </p>
+          <button className="promo__button">Пасмотреть католог</button>
+
         </div>
       </div>
 

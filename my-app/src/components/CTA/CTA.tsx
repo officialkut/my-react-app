@@ -12,17 +12,17 @@ const CTA = () => {
       <div className="CTA__chertovna">
         <div className="CTA__tile">
           <h2 className="CTA__subtitle">
-            Set up your profile. <br /> Let jobs find you.
+            Найдите свой автомобиль мечты.
           </h2>
           <button className="header__signup"
           onClick={() => setShowModal('signup')}
           >
-            Join Now</button>
+            Католог </button>
           
         </div>
         <img 
           className="CTA__img" 
-          src="/images/Rest.png" 
+          src="https://cdn.forbes.ru/files/c/1082x683/photo_galleries/1920-02_tcm-3173-1834873.jpg__1582289253__55999.webp" 
           alt="CTA illustration" 
         />
       </div>

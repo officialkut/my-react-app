@@ -19,7 +19,7 @@ header {
 .header__recruiters{
     padding: 14px 20px;
     background-color: initial;
-    cursor: pointer;
+
     border: 0px;
 }
 .header__login{
@@ -42,6 +42,10 @@ header {
     color: #000000;
     text-decoration: none;
     font-family: 'inter';
+
+}
+.header__recruiters{
+    cursor: pointer;
 }
 
 /* Адаптация для телефонов (480-767px) */

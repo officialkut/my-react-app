@@ -5,8 +5,7 @@
 }
 
 .CTA__chertovna {
-    display: grid;
-    grid-template-columns: auto 750px;
+    display: flex;
 
 
 }
@@ -30,6 +29,9 @@
     color: #fff;
     font-family: 'SemiBold';
 }
+.CTA__img {
+    width: 65%;
+}
 
 /* Адаптация для ноутбуков (1280-1440px) */
 @media (max-width: 1440px) {
@@ -39,12 +41,7 @@
     }
 }
 
-/* Адаптация для ноутбуков (1024-1279px) */
-@media (max-width: 1279px) {
-    .CTA__chertovna {
-        grid-template-columns: auto 450px
-    }
-}
+
 
 /* Адаптация для планшетов (768-1023px) */
 @media (max-width: 1023px) {

@@ -1,21 +1,25 @@
 .footer {
-    display: flex;
-    flex-direction: column;
+    color: slategray;
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+    padding: 20px;
 }
 
 .footer__holder {
     display: flex;
-    justify-content: space-between;
-    font-family: 'inter';
+    flex-direction: column;
+    align-items: flex-start;
 }
+
 .footer__logo {
     font-size: 24px;
     font-family: 'inter';
 }
+
 .footer__title {
     color: #707070;
     font-family: 'medium';
 }
+
 /* Адаптация для ноутбуков (1280-1440px) */
 @media (max-width: 1440px) {
     .logo {

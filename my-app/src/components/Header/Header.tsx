@@ -15,37 +15,41 @@ const Header = () => {
   return (
     <header className="header__container">
       <Link to="/">
-        <a className="header__logo logo">Jobly</a>
+        <a className="header__logo logo">АвтоДилер</a>
       </Link>
       <nav className="header__nav">
         <ul className="header__list">
-          <button className="header__recruiters" type="button">
-            For Recruiters
-          </button>
+          <Link to="/cards" className="cards-link">
+            <button className="header__recruiters" type="button">
+              Католог
+            </button>
+          </Link>
           <button
             className="header__signup"
             onClick={() => setShowModal('signup')}
           >
-            Sign Up
+            регистрация 
           </button>
           <button
             className="header__login"
             type="button"
             onClick={() => setShowModal('login')}
           >
-            Log in
+            войти
           </button>
         </ul>
       </nav>
 
-      {showModal && (
-        <AuthModal
-          type={showModal}
-          onClose={() => setShowModal(null)}
-          onSubmit={handleAuthSubmit}
-        />
-      )}
-    </header>
+      {
+        showModal && (
+          <AuthModal
+            type={showModal}
+            onClose={() => setShowModal(null)}
+            onSubmit={handleAuthSubmit}
+          />
+        )
+      }
+    </header >
   );
 };
 

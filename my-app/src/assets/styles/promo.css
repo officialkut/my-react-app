@@ -1,4 +1,4 @@
-.promo__content{
+.promo__content {
     text-align: center;
 }
 
@@ -11,25 +11,32 @@
     line-height: 83px;
     color: #080305;
 }
-.promo__button{
+
+.promo__button {
     background-color: #3D1EDD;
     width: 145px;
     height: 50px;
     color: white;
     font-family: 'SemiBold';
+    border-radius: 9999px;
+    cursor: pointer;
+    transform: scale(1.03);
 }
-.promo__content__text{
+
+.promo__content__text {
     text-decoration: none;
     color: #3D1EDD;
     font-family: 'Regular';
 }
-.promo__description{
+
+.promo__description {
     color: #707070;
     font-family: 'inter';
 }
+
 /* Адаптация для телефонов (480-767px) */
 @media (max-width: 767px) {
-    .promo__content{
+    .promo__content {
         margin-right: -480px;
     }
 }

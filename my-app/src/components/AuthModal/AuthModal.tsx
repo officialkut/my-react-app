@@ -51,7 +51,7 @@ const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
           {type === 'signup' && (
             <>
               <div className="form-group">
-                <label htmlFor="surname">Surname</label>
+                <label htmlFor="surname">фамилия</label>
                 <input
                   type="text"
                   id="surname"
@@ -62,7 +62,7 @@ const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">имя</label>
                 <input
                   type="text"
                   id="name"
@@ -88,7 +88,7 @@ const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Пароль</label>
             <input
               type="password"
               id="password"
@@ -102,7 +102,7 @@ const AuthModal = ({ type, onClose, onSubmit }: AuthModalProps) => {
 
           {type === 'signup' && (
             <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
+              <label htmlFor="confirmPassword">Потвердить пароль</label>
               <input
                 type="password"
                 id="confirmPassword"

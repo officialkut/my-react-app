@@ -10,12 +10,12 @@ const Caption = () => {
             <img src="/images/Eli.png" alt="Zhao Cui" className="caption__pic" />
           </div>
           <h3 className="caption__title__laed">
-            Creating an Online Presence is Hard. <br />
-            Jobly Makes it Easy for Recruiters to See You
+            Создать присутствие в Интернете сложно.<br />
+            Jobly облегчает поиск вас рекрутерами
           </h3>
           <div className="caption__subtitle">
-            <h4>Zhao Cui</h4>
-            <p>Founder at Jobly.co</p>
+            <h4>Чжао Цуй</h4>
+            <p>Основатель Jobly.co</p>
 
           </div>
         </div>

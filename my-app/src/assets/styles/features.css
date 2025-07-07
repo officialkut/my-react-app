@@ -1,20 +1,29 @@
-.section__features{
+.section__features {
     display: flex;
     margin: 80px;
 }
-.features__content{
+
+.features__content {
     display: flex;
     flex: 1px;
 }
-.features__wrap{
+
+.features__wrap {
     margin: 120px;
 }
+
 .features__title {
     font-family: 'inter';
 }
+
 .features__subtitle {
     font-family: 'Regular';
 }
+
+.features__img {
+    width: 27%;
+}
+
 /* Адаптация для ноутбуков (1280-1440px) */
 @media (max-width: 1440px) {
     .logo {

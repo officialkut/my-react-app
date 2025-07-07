@@ -109,6 +109,11 @@
     background-size: contain; /* Сохраняем пропорции */
     background-repeat: no-repeat;
     background-position: center;
+    border-bottom: none !important;
+}
+.image__1{
+    width: 100%;
+    padding: 100px 100px;
 }
 
 

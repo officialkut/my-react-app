@@ -30,3 +30,14 @@ export type AppData = {
   featureCards: Record<string, FeatureCard>;
   swiperCandidates: Candidate[];
 };
+export interface Car {
+  id: number;
+  brand: string;
+  model: string;
+  year: number;
+  mileage: number;
+  price: number;
+  condition: 'new' | 'used';
+  image: string;
+  featured: boolean;
+}

@@ -16,7 +16,7 @@ const CandidateCard = ({ candidate, isDetailed = false }: CandidateCardProps) =>
           <p className="subtitle">{candidate.subtitle}</p>
           <div className="location">
             <span>{candidate.location}</span>
-            <span className="freelancer">Fulltime Freelancer</span>
+            <span className="freelancer">Фрилансер на полный рабочий день</span>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@ const CandidateCard = ({ candidate, isDetailed = false }: CandidateCardProps) =>
           </div>
 
           <div className="portfolio-section">
-            <h4>Portfolio</h4>
+            <h4>Портфолио</h4>
             <div className="portfolio-images">
               {candidate.portfolioImages?.map((img, index) => (
                 <img key={index} src={img} alt={`Portfolio ${index + 1}`} />

@@ -17,16 +17,16 @@
   },
   "featureCards": {
     "card_1": {
-      "title": "Professional Profile",
-      "description": "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters."
+      "title": "Широкий выбор ",
+      "description": "Более 500 автомобилей в наличии на складе и под заказ"
     },
     "card_2": {
-      "title": "Best Portfolio",
-      "description": "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters."
+      "title": "Гарантия качества",
+      "description": "Все автомобили проходят предпродажную подготовку и техническую диагностику"
     },
     "card_3": {
-      "title": "Powerful Resume",
-      "description": "We know finding the right job is stressful, so we've made it simple. It only takes a few minutes. Create a free portfolio on brefolio to show your best self and get discovered by recruiters."
+      "title": "Удобное расположение",
+      "description": "Наши дилерские центры находятся в удобных местах по всей стране."
     }
   },
   "swiperCandidates": [
